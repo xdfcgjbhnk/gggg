@@ -7,10 +7,10 @@
     "node": ">=20"
   },
   "scripts": {
-    "build": "npm run build:client && npm run build:server",
-    "build:client": "vite build",
-    "build:server": "node build.mjs",
-    "start": "node --enable-source-maps dist/index.mjs",
+    "build": "NODE_ENV=development npm run build:client && NODE_ENV=development npm run build:server",
+    "build:client": "NODE_ENV=development npx vite build",
+    "build:server": "NODE_ENV=development node build.mjs",
+    "start": "NODE_ENV=production node --enable-source-maps dist/index.mjs",
     "db:push": "npx drizzle-kit push --config drizzle.config.ts",
     "db:push:force": "npx drizzle-kit push --force --config drizzle.config.ts",
     "db:seed": "npx tsx scripts/seed.ts"
